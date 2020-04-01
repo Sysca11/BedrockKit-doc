@@ -1,0 +1,54 @@
+##服务器简单log和实用工具
+#概述
+文件名:bdxhelper.dll
+语言包:无
+配置文件:config/helper.json
+
+#功能
+记录玩家聊天 IP 指令历史到bdx.log
+点地执行指令
+强制开启ability
+以玩家身份运行(非execute)
+若干指令
+
+#命令列表
+/runas <player> <命令>
+例如 runas @a me hi
+
+/cname { "set","rm" }
+/cname set Steve 称号
+/cname rm Steve（删除称号 
+例如
+/cname set Steve 服主
+
+注意 控制台输入中文不稳定，建议游戏内输入，玩家名大小写敏感
+/transfer <player> <地址> [端口]
+跨服指令
+例如
+/transfer @a mc114.top 19132
+
+/ban 黑名单
+/ban list   ：黑名单列表
+/ban ban 玩家名 [时间]
+/ban unban 玩家名/IP
+/ban banip 封禁ip [时间]
+例如
+/ban ban Steve 10         封禁10s
+/ban ban Steve            永久封禁
+/ban banip 114.5.1.4
+
+
+/skick 强制踢出
+输入/skick 字符串，可以踢出所有以此字符串为前缀的玩家
+例如
+/skick s 会踢出Steve,s_b
+/skick "" 会踢出所有玩家
+
+#配置文件格式
+enable_expplay:boolean -> 是否开启实验性游戏,true开启
+CMDMAP:{int,string} -> 物品id和以此id点地时执行的指令
+例如
+{
+0:"me 空手点地",
+2:"me 土块点地"
+}

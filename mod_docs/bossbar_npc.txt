@@ -1,0 +1,32 @@
+##bossbar,npc,map
+文件：Bossbar.dll
+数据：data/npcutil
+#依赖
+bdxlua.dll
+#功能
+自定义bossbar，自定义npc，自定义map
+#指令
+/bb pin 消息            置顶消息
+/bb unpin
+/bb length "100"       消息条长度（百分比）
+	例如
+	/bb pin "服务器群号 1919810"
+
+/map 文件名 
+	/map 0 -> 0.bin  文档编写中
+
+/npc:
+/npc add 名字 类型 nametag lua回调函数
+/npc add npc1 pig 李田所 onNPC
+/npc list [名字] 查看npc列表
+	/npc list
+	/npc list npc1
+/npc remove 名字
+	/npc remove npc1
+/npc setrot 名字 头俯仰角度 身体角度1 身体角度2
+
+注意：npc只能在主维度创建，且有可能在所有维度的同坐标都显示npc
+
+npc的lua回调指，npc被点击时，调用指定回调函数
+例如上文例子的npc1被点击就会调用onNPC(点击者名字)
+

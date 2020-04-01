@@ -1,0 +1,40 @@
+##经济
+#概述
+文件名:bdxmoney.dll
+语言包:landpack/money.json
+配置文件:config/money.json
+数据库:data/money.db     //sqlite格式
+#依赖
+bdxlua.dll
+#功能
+带流水的经济，通过sql储存，可多服同步
+#指令
+/money
+{ "query","hist" } [玩家名]:
+query:查自己余额 或者指定玩家
+hist:查历史 或者指定玩家
+/money query
+/money hist steve
+{"pay","set","add","reduce"}
+pay:转账 /money pay 目标 金额
+set:设置 /money set 目标 金额 （op
+add:给钱/money add 目标 金额 （op
+reduce:扣钱/money redece 目标 金额 （op
+这里的目标为玩家名，不区分大小写
+
+/money_op purge [秒] 清除多少之前的记录，不填写为清除全部
+/money_op {"pay","set","add","reduce"} 选择器 金额
+
+注意：/money_op reduce返回状态，可以在命令方块使用
+
+#配置文件
+{
+"def_money":0,   //默认金钱，整数
+"pay_tax":0.0   //玩家汇款税率，浮点数 税=金额*pay_tax
+}
+
+#lua API
+通过lbind调用
+lbind("getMoney",玩家名)->金钱
+lbind("rdMoney",玩家名,钱数)->bool 扣钱成功状态
+lbind("addMoney",玩家名,钱数)

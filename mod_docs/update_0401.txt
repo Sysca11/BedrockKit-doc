@@ -1,0 +1,15 @@
+land：
+新增1个API接口
+新增/landdump 显示所有领地信息
+helper:
+优化：ban会自动t玩家
+tpa：
+新增：禁止领地附近设home，参数参见tpa.json
+map:
+优化了物品检查
+
+BDX:
+修复了BUG #1.开服时可能的随机崩溃
+BUG#2.玩家退服后的xuid和name被其他玩家继承导致的权限问题
+新增全局语言包，可自定义部分输出，参见landpack/global.json
+性能调整
