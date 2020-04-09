@@ -1,3 +1,5 @@
+-- remove an item from player,safe_clear("steve","dirt",10),
+-- safe_clear("steve","item data-value",10)
 function safe_clear(name,item,count)                                                  
         -- return bool (success)                                                      
         if string.find(item,' ')==nil then                                            
