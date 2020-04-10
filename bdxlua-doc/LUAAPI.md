@@ -36,10 +36,12 @@ Lua可以热重载，通过/lreload指令。
 > bcText(文本:str [,文本类型:int])
 
 其中文本类型包括
-```RAW = 0, //聊天框
+```
+RAW = 0, //聊天框
 POPUP = 3,  //物品栏上
 JUKEBOX_POPUP = 4, //音乐盒位置
-TIP = 5 //物品栏上```
+TIP = 5 //物品栏上
+```
 
 **获取在线玩家列表**
 > oList()->table
