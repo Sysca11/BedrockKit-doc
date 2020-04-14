@@ -54,7 +54,7 @@ TIP = 5 //物品栏上```
 
 以控制台身份运行指令
 返回指令是否运行成功
-例如`runCmd(”me test”)`
+例如`runCmd(”/me test”)`
 **注：如果使用clear一类指令，clear失败返回false**
 
 > runCmdAs(玩家名:str,指令:str)->bool
@@ -62,13 +62,13 @@ TIP = 5 //物品栏上```
 以玩家身份运行指令
 返回是否运行成功
 例如
-`runCmdAs(“Steve”,”me test”)`
+`runCmdAs(“Steve”,”/me test”)`
 
 > runCmdEx(指令:str) -> (bool,str)
 
 以**控制台**运行并**获取输出**
 例如
-<pre>success,output=runCmdEx(“clear Steve dirt 3”)
+<pre>success,output=runCmdEx(“/clear Steve dirt 3”)
 Print(success,output)  -- true     output.....
 </pre>
 
@@ -91,6 +91,7 @@ Print(success,output)  -- true     output.....
 > 可以使用/lua_db指令来打印数据库中实际存储的数据
 > /lua_db “”     -> 打印全部数据
 > /lua_db “Steve-”   ->打印Steve的数据
+> /lua_db_del "Steve-"   ->删除Steve的数据
 
 ### 杂项
 > Log(日志:xstr,...) 记录日志，同时写入文件(lualog.log)和屏幕
@@ -125,6 +126,27 @@ schedule(“timer”,10,10)    --- 5秒后执行第一次，每5秒再执行一�
 
 cancel(id)    --- 取消第一个任务
 </pre>
+## init.lua及其他DLL提供的API
+`TSize(x:table)->int`
+获得table大小
+`append(x:table,val:any)`
+给table后面附加元素
+`runCmdS(cmd:str[,break_on_error:bool])->bool`
+执行一串命令例如`say a$kill @a`
+`safe_clear(name:str,item:str,count:int)->bool`
+安全的清除物品，item为类似"diamond","dirt 1"的字符串，数字代表特殊值，可以不写
+返回是否清除成功
+`getHand(name:str)->item:str,aux:int`
+获取手上物品
+`cleanHand(name:str)`
+清除手上物品
+`dumpInv(name:str,isEnderChest:bool)->str`
+获取玩家背包内容
+`giveItem(name:str,item:str,count:int,aux:int[,lore:table])`
+给玩家物品，aux特殊值
+giveItem(name,"diamond",10,0,{0:"super diamond"})
+giveItem(name,"dirt",10,1)
+
 
 ## 第三方API
 **bdxmoney:**
@@ -162,12 +184,20 @@ cancel(id)    --- 取消第一个任务
 
 
 ## 事件监听
-> Listen(事件名:str,回调:str)
+> Listen(事件名:str,回调:str/function)
+**必须在函数声明后，再使用Listen**
+**例如**
+
+```lua
+Listen("onCMD", function(name,cmd)
+					print(cmd)
+				end)
+function test(name,a,b)
+end
+Listen("onLCMD","test")
+```
 
 注册监听器
-> Unlisten(事件名:str,回调:str)
-
-取消注册
 
 其中，事件包括
 
