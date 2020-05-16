@@ -1,5 +1,5 @@
 # BedrockKit-doc
-Documentations for [BedrockKit](https://github.com/Sysca11/BedrockKit) and [BedrockX](https://github.com/Sysca11/BedrockKit)  
+Documentations for [BedrockKit](https://github.com/Sysca11/BedrockKit) and [BedrockX](https://github.com/Sysca11/BedrockX)  
 only Chinese Simplified,English documentations will be provided in the future.
 ## About folders
 `bdxlua-doc`:lua development documentation  
