@@ -38,13 +38,31 @@
 例如:`/skick s` 会踢出Steve和s_b  
 `/skick ""` 会踢出所有玩家  
 
-## 配置文件格式
-`enable_expplay:boolean` -> 是否开启实验性游戏,true开启  
-`CMDMAP:{int,string}` -> 物品id和以此id点地时执行的指令  
-例如:
+## 配置文件
 ```
 {
-0:"me 空手点地",
-2:"me 土块点地"
+"force_enable_expplay":false, //是否开启实验性模式
+"fix_crash_bed_explode":false, //是否禁止床在非主世界爆炸，用于修复开启实验性模式后导致的崩溃
+"FIX_PUSH_CHEST":true, //是否禁止活塞推动容器
+"FAKE_SEED":114514, //设置界面中显示的假种子，只能使用整数
+"CMDMAP":{}, //使用物品触发命令
+"Timers":[], //计时器
+"explosion_land_dist":8, //禁止在领地边缘的指定距离内爆炸
+"NO_EXPLOSION":false, //是否禁止服务器内爆炸
+"logItems":[], //当玩家使用指定ID的物品将会被输出到控制台
+"banItems":[], //禁止玩家使用物品
+"force_enable_ability":false //是否在未开启教育版的情况下打开/ability命令
 }
+```
+### CMDMAP的格式:  
+`CMDMAP:{string,string}`  
+```
+{
+"0":"me 空手点地",
+"2":"me 土块点地"
+}
+```
+### logitems以及banitems的格式:
+```
+"logitem":[7, 2, 3]
 ```
