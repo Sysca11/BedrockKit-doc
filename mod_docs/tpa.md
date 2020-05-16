@@ -45,6 +45,9 @@ warp:op设置公共传送点
 {
 "max_homes":5,     //玩家最大设置家数量
 "tpa_timeout":20000,   //tpa请求超时时间，单位毫秒，默认20s
-"tpa_ratelimit":5000 //连续tpa请求冷却时间，单位毫秒，默认5s
+"tpa_ratelimit":5000, //连续tpa请求冷却时间，单位毫秒，默认5s
+"home_land_distance":8, //不能在无权限的land周围设置home的距离
+"BACK_ENABLED":true, //是否启用/back命令
+"SUICIDE_ENABLED":true //是否启用/suicide命令
 }
 ```
