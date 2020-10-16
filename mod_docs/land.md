@@ -50,5 +50,6 @@ enum LandPerm : u16 {
 "SELL_PRICE":10, //卖出价格
 "PROTECT_FARM":true, //默认保护耕地，现在不能修改
 "PROTECT_IFRAME":true //默认保护展示框,现在不能修改
+"LAND_MIN_Y":0
 }
 ```
