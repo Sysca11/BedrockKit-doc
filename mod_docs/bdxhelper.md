@@ -1,19 +1,19 @@
 ## 服务器简单log和实用工具
 ### 概述
-文件名:`bdxhelper.dll`  
-语言包:无  
-配置文件:`config/helper.json`
+文件名: bdxhelper.dll</br> 
+语言包: 无</br>
+配置文件: config/helper.json
 
 ## 功能
-记录玩家聊天、IP、指令历史到`bdx.log`  
-点地执行指令  
-强制开启ability  
-以玩家身份运行(非execute)  
-若干指令  
+记录玩家聊天、IP、指令历史到*bdx.log*</br>
+点地执行指令</br>
+在不启用教育版的情况下启用`/ability`指令</br>
+以玩家身份运行(非execute)</br>
+若干指令
 
 ## 命令列表
-以玩家身份执行命令:`/runas <player> <命令>`  
-例如:`runas @a me hi`  
+以玩家身份执行命令:`/runas <player> <命令>`</br>
+例如:`runas @a me hi`
  
 给予称号:`/cname set Steve <称号>`  
 删除称号:`/cname rm Steve`   
@@ -21,11 +21,12 @@
 
 **注意:控制台输入中文可能会乱码，建议游戏内输入，请注意玩家名大小写**
 
-将玩家传送到指定服务器:`/transfer <player> <IP> [端口]`  
-例如:`/transfer @a mc114.top 19132`
+将玩家传送到指定服务器:`/transfer <player> <IP> [端口]`</br>
+例如: `/transfer @a 114514.rhymc.com 19132`
 
 黑名单列表:`/ban list`  
-将玩家加入黑名单:`/ban ban <玩家名/IP> [时间(秒数)]`(顺带一提，"/"是"或"的意思)  
+将玩家加入黑名单:`/ban ban <玩家名/IP> [时间(秒数)]`
+
 将玩家移除黑名单:`/ban unban <玩家名/IP>`  
 例如:`/ban ban Steve 10` 将Steve封禁10s  
 `/ban ban Steve` 将Steve永久封禁  
@@ -39,6 +40,7 @@
 `/skick ""` 会踢出所有玩家  
 
 ## 配置文件
+
 ```
 {
 "force_enable_expplay":false, //是否开启实验性模式
@@ -51,18 +53,33 @@
 "NO_EXPLOSION":false, //是否禁止服务器内爆炸
 "logItems":[], //当玩家使用指定ID的物品将会被输出到控制台
 "banItems":[], //禁止玩家使用物品
-"force_enable_ability":false //是否在未开启教育版的情况下打开/ability命令
+"force_enable_ability":false, //是否在未启用教育版的情况下启用/ability命令
+"REDSTONE_DELAY":114514, //红石频率限制，改为114514禁用
+"REDSTONE_DELAY2_DIV":7,
+"REDSTONE_DELAY2_MUL":2,
+"nopush_ids":[1,2], //禁止指定id的方块被推动
+"motd":"苟利国家生死以", //自定义motd
+"NOFIXBDS_BONEMEAL_BUG": true, //不修复bds骨粉崩服bug
+"MAX_CHAT_LEN": 20, //最大聊天信息长度
+"LOG_CHAT": true, //是否记录聊天信息到log
+"LOG_CMD": true, //是否记录命令历史到log
+"NOGREYTEXT": true //是否禁用玩家使用命令后发送消息到op(灰色字)
 }
 ```
-### CMDMAP的格式:  
-`CMDMAP:{string,string}`  
+
+### CMDMAP的格式:
+
+`CMDMAP:{string,string}`
+
 ```
 {
 "0":"me 空手点地",
 "2":"me 土块点地"
 }
 ```
+
 ### logitems以及banitems的格式:
+
 ```
 "logitem":[7, 2, 3]
 ```
