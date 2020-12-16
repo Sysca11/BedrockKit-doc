@@ -22,7 +22,7 @@
 **注意:控制台输入中文可能会乱码，建议游戏内输入，请注意玩家名大小写**
 
 将玩家传送到指定服务器:`/transfer <player> <IP> [端口]`  
-例如:`/transfer @a mc114.top 19132`
+例如:`/transfer @a mcbeos.top 19132`
 
 黑名单列表:`/ban list`  
 将玩家加入黑名单:`/ban ban <玩家名/IP> [时间(秒数)]`(顺带一提，"/"是"或"的意思)  
@@ -35,7 +35,7 @@
 
 **输入/skick 字符串，可以踢出所有以此字符串为前缀的玩家**  
 
-例如:`/skick s` 会踢出Steve和s_b  
+例如:`/skick s` 会踢出Steve和Someone  
 `/skick ""` 会踢出所有玩家  
 
 ## 配置文件
@@ -44,14 +44,18 @@
 "force_enable_expplay":false, //是否开启实验性模式
 "fix_crash_bed_explode":false, //是否禁止床在非主世界爆炸，用于修复开启实验性模式后导致的崩溃
 "FIX_PUSH_CHEST":true, //是否禁止活塞推动容器
-"FAKE_SEED":114514, //设置界面中显示的假种子，只能使用整数
+"FAKE_SEED":-1, //设置界面中显示的假种子，只能使用整数
 "CMDMAP":{}, //使用物品触发命令
 "Timers":[], //计时器
 "explosion_land_dist":8, //禁止在领地边缘的指定距离内爆炸
 "NO_EXPLOSION":false, //是否禁止服务器内爆炸
 "logItems":[], //当玩家使用指定ID的物品将会被输出到控制台
 "banItems":[], //禁止玩家使用物品
-"force_enable_ability":false //是否在未开启教育版的情况下打开/ability命令
+"force_enable_ability":false, //是否在未开启教育版的情况下打开/ability命令
+"REDSTONE_DELAY":1,
+"REDSTONE_DELAY2_DIV":7,
+"REDSTONE_DELAY2_MUL":2,
+"nopush_ids":[]
 }
 ```
 ### CMDMAP的格式:  
@@ -62,7 +66,7 @@
 "2":"me 土块点地"
 }
 ```
-### logitems以及banitems的格式:
+### logitems,nopush_ids以及banitems的格式:
 ```
 "logitem":[7, 2, 3]
 ```
